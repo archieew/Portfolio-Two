@@ -1,0 +1,126 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: absolute;
+    z-index: 10;
+    background: transparent;
+}
+
+.header__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.mobile-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        li {
+            list-style: none;
+            margin: 0 1rem;
+
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #000;
+                font-weight: 500;
+
+                &:hover {
+                    border-bottom: 3px solid green;
+                }
+            }
+        }
+    }
+}
+
+.changer {
+    display: none;
+
+    .menu {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
+
+.closed {
+    .close {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 800px) {
+    .changer {
+        display: block;
+
+        .menu {
+            display: block;
+        }
+    }
+
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9;
+        transition: 0.5s ease;
+
+        ul {
+            flex-direction: column;
+
+            li {
+                margin: 1.5rem 0;
+
+                a {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .mobile-nav.active {
+        display: flex;
+    }
+
+    .closed .close {
+        display: block;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .header__logo {
+        font-size: 1.2rem;
+    }
+
+    .changer .menu {
+        font-size: 1.8rem;
+    }
+
+    .closed .close {
+        font-size: 1.8rem;
+    }
+
+    .mobile-nav ul li a {
+        font-size: 1rem;
+    }
+}
